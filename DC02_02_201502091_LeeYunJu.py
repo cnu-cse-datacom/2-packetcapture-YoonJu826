@@ -144,9 +144,9 @@ def parsing_tcp_header(data):
 
 def parsing_udp_header(data):
     udp_header = struct.unpack("!2s 2s 2s 2s", data)
-    udp_src_port = udp_header[0].hex()
-    udp_dst_port = udp_header[1].hex()
-    udp_leng = udp_header[2].hex()
+    udp_src_port = int(udp_header[0].hex(), 16)
+    udp_dst_port = int(udp_header[1].hex(), 16)
+    udp_leng = int(udp_header[2].hex(), 16)
     udp_header_checksum = "0x"+udp_header[3].hex()
 
     print("========udp_header========")
